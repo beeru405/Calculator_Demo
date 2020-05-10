@@ -1,4 +1,4 @@
-package Calculator.Calculator_Demo;
+package Calculator.CalculatorDemo;
 
 import java.util.Scanner;
 

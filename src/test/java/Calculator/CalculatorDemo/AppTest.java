@@ -1,8 +1,10 @@
-package Calculator.Calculator_Demo;
+package Calculator.CalculatorDemo;
 
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+
+import Calculator.CalculatorDemo.App;
 //import junit.framework.Assert;
 //import junit.framework.Test;
 import junit.framework.TestCase;
