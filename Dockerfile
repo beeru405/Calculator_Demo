@@ -6,4 +6,4 @@ COPY pom.xml /usr/local/Calculator/pom.xml
 COPY src /usr/local/Calculator/src
 WORKDIR /usr/local/Calculator
 RUN mvn package
-CMD ["java","-cp","target/Calculator-0.0.1-SNAPSHOT.jar","Calculator.Calculator.App"]
+CMD ["java","-cp","target/Calculator-0.0.1-SNAPSHOT.jar","Calculator.Calculator_Demo.App"]
