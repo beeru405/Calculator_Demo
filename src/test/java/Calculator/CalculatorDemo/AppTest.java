@@ -54,32 +54,32 @@ public class AppTest
     			
     }
     
-//	@Test
-//    public void testSub() {
-//    	int a = 10;
-//    	int b= 5;
-//    	int expected = 5;
-//    	int actual = calc.sub(a, b);
-//    	Assert.assertEquals(expected, actual);
-//    }
-//    
-//
-//   	@Test
-//    public void testMul() {
-//       	int a = 10;
-//       	int b= 5;
-//       	int expected = 50;
-//       	int actual = calc.mul(a, b);
-//       	Assert.assertEquals(expected, actual);
-//   }
-//
-//   	@Test
-//    public void testDiv() {
-//       	int a = 10;
-//       	int b= 5;
-//       	double expected = 2;
-//       	double actual = calc.div(a, b);
-//       	Assert.assertEquals(expected, actual, 0);
-//    }
+	@Test
+    public void testSub() {
+    	int a = 10;
+    	int b= 5;
+    	int expected = 5;
+    	int actual = calc.sub(a, b);
+    	Assert.assertEquals(expected, actual);
+    }
+    
+
+   	@Test
+    public void testMul() {
+       	int a = 10;
+       	int b= 5;
+       	int expected = 50;
+       	int actual = calc.mul(a, b);
+       	Assert.assertEquals(expected, actual);
+   }
+
+   	@Test
+    public void testDiv() {
+       	int a = 10;
+       	int b= 5;
+       	double expected = 2;
+       	double actual = calc.div(a, b);
+       	Assert.assertEquals(expected, actual, 0);
+    }
     
 }
