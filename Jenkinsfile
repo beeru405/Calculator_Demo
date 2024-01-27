@@ -1,6 +1,6 @@
 pipeline {
   environment {
-    registry = "abhishekacharya/calculator_demo"
+    registry = "797268/calculator_demo"
     registryCredential = 'docker-hub-credentials'
     dockerImage = ''
     dockerImageLatest = ''
