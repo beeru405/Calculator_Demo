@@ -40,18 +40,6 @@ pipeline {
         sh "docker rmi $registry:$BUILD_NUMBER"
       }
     }
-    stage('Execute Rundeck job') {
-        steps {
-          script {
-            step([$class: "RundeckNotifier",
-                  includeRundeckLogs: true,
-                  jobId: "32039542-4e58-4a43-8a53-b6e91b961481",
-                  rundeckInstance: "Rundeck",
-                  shouldFailTheBuild: true,
-                  shouldWaitForRundeckJob: true,
-                  tailLog: true])
-          }
-        }
-    }
+    
   }
 }
