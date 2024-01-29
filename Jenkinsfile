@@ -17,13 +17,6 @@ pipeline {
             }
         }
 
-        stage('Deploy') {
-            steps {
-                // Deploy the application (e.g., upload to an app distribution platform)
-                // Add your deployment steps here
-            }
-        }
-
         stage('Generate APK') {
             steps {
                 // Generate the APK file
