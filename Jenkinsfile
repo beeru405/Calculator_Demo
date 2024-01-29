@@ -2,12 +2,6 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout') {
-            steps {
-                // Check out the code from your version control system
-                git 'https://github.com/beeru405/Calculator_Demo.git'
-            }
-        }
 
         stage('Build') {
             steps {
