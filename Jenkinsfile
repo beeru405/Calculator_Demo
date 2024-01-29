@@ -1,45 +1,53 @@
 pipeline {
-  environment {
-    registry = "797268/calculator_demo"
-    registryCredential = 'docker-hub-credentials'
-    dockerImage = ''
-    dockerImageLatest = ''
-  }
-  agent any
-  stages {
-    stage('Cloning Git') {
-      steps {
-        git 'https://github.com/Abhishek-Acharya/Calculator_Demo'
-      }
-    }
-    stage('Build Executable Jar'){
-        steps {
-             sh 'mvn clean test package'
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                // Check out the code from your version control system
+                git 'https://github.com/beeru405/Calculator_Demo.git'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                // Build your Android project
+                sh './gradlew assembleDebug'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                // Run your tests
+                sh './gradlew test'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                // Deploy the application (e.g., upload to an app distribution platform)
+                // Add your deployment steps here
+            }
+        }
+
+        stage('Generate APK') {
+            steps {
+                // Generate the APK file
+                sh './gradlew assembleRelease'
+                archiveArtifacts artifacts: '**/*.apk', fingerprint: true
+            }
         }
     }
-    stage('Building image') {
-      steps{
-        script {
-          dockerImage = docker.build registry + ":$BUILD_NUMBER"
-          dockerImageLatest = docker.build registry + ":latest"
+
+    post {
+        success {
+            // Notify or perform additional actions on success
+            echo 'Build, test, deploy, and APK generation succeeded!'
         }
-      }
-    }
-    stage('Deploy Image') {
-      steps{
-        script {
-          docker.withRegistry( '', registryCredential ) {
-            dockerImage.push()
-            dockerImageLatest.push()
-          }
+
+        failure {
+            // Notify or perform additional actions on failure
+            echo 'Build, test, deploy, or APK generation failed!'
         }
-      }
     }
-    stage('Remove Unused docker image') {
-      steps{
-        sh "docker rmi $registry:$BUILD_NUMBER"
-      }
-    }
-    
-  }
 }
